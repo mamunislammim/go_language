@@ -3,44 +3,36 @@ package main
 import "fmt"
 
 func main() {
-	loopFunction()
-}
+	fmt.Println("This is First line")
 
-func loopFunction() {
-
-	var counter int16
-	for i := 0; i < 10; i++ {
-		counter = 0
-		for j := 2; j < i%2; j++ {
-			if i%j == 0 && i != 0 {
-				fmt.Printf("======== %d\n", i)
-				counter++
-			}
-		}
-		if counter > 0 {
-			fmt.Print("%s", i)
-		}
+	studentInfo := Student{
+		id:    2026,
+		name:  "Mamun",
+		phone: "01767676767",
+		cGpa:  3.90,
 	}
+
+	fmt.Println("Student info is ", studentInfo)
+
+	outPut := sumFun(10, 20)
+
+	fmt.Println("Result of sum := ", outPut+50)
+
+	fmt.Println("Student info is ", studentInfo)
+
+	studentInfo.id = 100
+	studentInfo.name = "Milon"
+	fmt.Println("Student info is ", studentInfo)
+	fmt.Println("Address of Pointer : ", &studentInfo)
 }
 
 type Student struct {
-	id      int16
-	name    string
-	section string
+	id          int16
+	name, phone string
+	cGpa        float32
 }
 
-func variableFun() {
-	var id int
-	var cGPA float32
-	var name, phone, section string
-	status := true
-
-	id = 102614
-	cGPA = 3.9
-	name = "Mamun Islam"
-	phone = "01767676767"
-	section = "B"
-	fmt.Println(id, name, phone, section)
-	fmt.Println(id, name, status)
-	fmt.Printf("%.2f", cGPA)
+func sumFun(num1, num2 int16) int16 {
+	result := num1 + num2
+	return result
 }
